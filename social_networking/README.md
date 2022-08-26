@@ -76,3 +76,13 @@ rails generate rspec:install
 ```
 
 Ao executar os testes para ter mais informações, utilize o --format doc no arquivo .rspec na raiz do projeto
+
+## Iniciar o servidor
+
+```sh
+rails s
+```
+
+Como estamos acessando como admins devemos acessar http://localhost:3000/admins/sign_in
+
+Foi utilizado o [bootcamp-templates](https://github.com/LucianoCordeiro/bootcamp-templates) para as imagens do background e da logo
