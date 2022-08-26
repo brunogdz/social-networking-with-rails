@@ -26,15 +26,53 @@ Things you may want to cover:
 # Inicializar o Projeto
 
 1 - rails new PROJECTNAME -d postgresql (inicializar o projeto)
+
 2 - pg_ct1 -D /usr/local/var/postgres start
 
 
 ### Devise
 
-rails generate devise:install
-rails generate device MODEL (nesse caso foi usado o admin)
+3 -rails generate devise:install
+
+4 - rails generate device MODEL (nesse caso foi usado o admin)
+
 rails generate devise:views -v registrations sessions
 
 # 
-Para criacao do database faz: rails db:create
+5 - rails db:create (Para criacao do database)
 
+6 - rails db:migrate
+
+7 - instalar gem 'rspec-rails'
+
+8 - rails generate rspec:model admin
+
+Criando um usuário admin e testando-o com rspec
+
+```ruby
+require 'rails_helper'
+
+RSpec.describe Admin, type: :model do
+  # criar uma instancia admin e testar
+  it "admin is valid" do
+    admin = Admin.new(email: "admin@admin.com", password: "123456")
+
+    expect(admin.email).to eql "admin@admin.com"
+  end
+end
+
+```
+
+para executar o teste utilize:
+
+```sh
+rspec spec/models/admin_spec.rb
+```
+
+Caso ocorra um erro, deverá ser gerado o .rspec, só executar o comando
+
+```sh
+rails generate rspec:install
+```
+
+Ao executar os testes para ter mais informações, utilize o --format doc no arquivo .rspec na raiz do projeto
